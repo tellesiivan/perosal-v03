@@ -32,7 +32,7 @@ export function ResumeContainer() {
 				<span className="ml-3">Resume</span>
 			</h2>
 			<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-				Interested in what I'm all about? Download my resume and view my latest skills and experience.
+				{`Interested in what I'm all about? Download my resume and view my latest skills and experience.`}
 			</p>
 			<div className="mt-6 w-full">
 				<Button type="submit" className="w-full">

@@ -28,8 +28,7 @@ function SocialLink({
 }) {
   return (
     <li className={clsx(className, 'flex')}>
-      <Link 
-          target="_blank"
+      <Link target="_blank"
         href={href}
         className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
       >
@@ -85,12 +84,7 @@ export default function About() {
 
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                I’m Ivan Telles, a software developer based in Norwalk, California. I’m
-                currently a software developer at Mahalo Technologies Inc, where we are
-                building a multi-tenant mobile banking app serving 20+ unique credit
-                unions. It's a fully customizable app that can be configured to match any
-                credit union needs from customizing the theme of the app to configuring
-                what vendor handles wire transfers via an admin dashboard.
+                {`Im Ivan Telles, a software developer based in Norwalk, California. I’m currently a software developer at Mahalo Technologies Inc, where we are  building a multi-tenant mobile banking app serving 20+ unique credit unions. It's a fully customizable app that can be configured to match any credit union needs from customizing the theme of the app to configuring what vendor handles wire transfers via an admin dashboard.`}
               </p>
               <p>
                 The only thing I loved more than computers as a kid was space.
