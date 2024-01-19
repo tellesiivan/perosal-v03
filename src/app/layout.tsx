@@ -7,12 +7,12 @@ import '@/styles/tailwind.css'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Spencer Sharp',
+    template: '%s - Ivan Telles',
     default:
-      'Spencer Sharp - Software designer, founder, and amateur astronaut',
+      'Ivan Telles - Software Developer at Mahalo Technologies Inc.\n',
   },
   description:
-    'I’m Spencer, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms.',
+    'I’m Ivan Telles, a software developer based in Norwalk, California. I’m currently a software developer at Mahalo Technologies Inc, where we are  building a multi-tenant mobile banking app serving 20+ unique credit unions. It\'s a fully customizable app that can be configured to match any credit union needs from customizing the theme of the app to configuring what vendor handles wire transfers via an admin dashboard.',
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
@@ -25,6 +25,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  
   return (
     <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <body className="flex h-full bg-zinc-50 dark:bg-black">
