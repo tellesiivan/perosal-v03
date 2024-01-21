@@ -1,10 +1,10 @@
 import clsx from 'clsx'
 
-export function Prose({
+export function Pteal({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<'div'>) {
   return (
-    <div className={clsx(className, 'prose dark:prose-invert')} {...props} />
+    <div className={clsx(className, 'pteal dark:pteal-invert')} {...props} />
   )
 }

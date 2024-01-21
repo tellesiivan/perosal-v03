@@ -15,7 +15,7 @@ const projects = [
   {
     name: 'Vamo App',
     description: projectsTextMap.get('vamoAppDesc'),
-    link: { href: '', label: 'Private Repository' },
+    link: { href: '#', label: 'Private Repository' },
     logo: pizzaLogo,
   },
   {

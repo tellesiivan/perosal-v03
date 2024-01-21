@@ -1,5 +1,3 @@
-import { ComponentProps } from 'react'
-
 const bgs = [
   'green',
   'yellow',
@@ -8,9 +6,9 @@ const bgs = [
   'orange',
   'blue',
   'amber',
-  'rose',
   'teal',
-  'rose',
+  'teal',
+  'teal',
 ]
 
 function isEmpty(string: string) {
@@ -25,7 +23,7 @@ export function Pill({ skill, query }: { skill: string; query: string }) {
     <div
       className={`${
         highlight
-          ? `translate-x-1 translate-y-0.5 bg-rose-400 text-black drop-shadow-2xl transition-all ease-in `
+          ? `translate-x-1 translate-y-0.5 bg-teal-400 text-black drop-shadow-2xl transition-all ease-in `
           : `bg-gray-50  text-gray-500 dark:bg-zinc-800 dark:text-gray-400`
       } mb-2 flex max-w-fit cursor-pointer flex-row items-center space-x-2 rounded-full py-1 pl-1 pr-4 text-xs font-semibold leading-tight opacity-100 ring-1 ring-zinc-300 transition-all ease-in-out hover:opacity-80  dark:ring-zinc-700`}
     >

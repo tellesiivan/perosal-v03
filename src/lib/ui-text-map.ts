@@ -1,4 +1,4 @@
-export type HomeKey = 'intro1' | 'intro2' | 'intro3'
+export type HomeKey = 'intro1' | 'intro2' | 'intro3' | 'heading'
 export type SharedKey = 'name' | 'title' | 'email'
 export type ExperienceKey =
   | 'heading'
@@ -37,6 +37,7 @@ export const homeTextMap = new Map<HomeKey, string>([
   ],
   ['intro2', 'Software Developer at Mahalo Technologies Inc.'],
   ['intro3', 'Software Developer at Mahalo Technologies Inc.'],
+  ['heading', 'Ivan Telles, a Software Developer from Norwalk, California'],
 ])
 
 export const projectsTextMap = new Map<ProjectsKey, string>([

@@ -40,6 +40,7 @@ const skills = [
   'NodeJs',
   'Webpack',
   'NX',
+  'Docker',
   'RestAPI',
   'PostGres',
   'Docker',

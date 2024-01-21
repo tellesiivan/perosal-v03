@@ -12,8 +12,8 @@ import {
 } from '@/components/SocialIcons'
 import portraitImage from '@/images/portrait.jpg'
 
-import {ExperienceContainer} from "@/components/experience-container";
-import {HomeKey, homeTextMap, sharedTextMap} from "@/lib/ui-text-map";
+import { ExperienceContainer } from '@/components/experience-container'
+import { HomeKey, homeTextMap, sharedTextMap } from '@/lib/ui-text-map'
 
 function SocialLink({
   className,
@@ -28,7 +28,8 @@ function SocialLink({
 }) {
   return (
     <li className={clsx(className, 'flex')}>
-      <Link target="_blank"
+      <Link
+        target="_blank"
         href={href}
         className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
       >
@@ -51,69 +52,79 @@ function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 }
 
 export const metadata: Metadata = {
-  title: 'About',
-  description:
-    'I’m Spencer Sharp. I live in New York City, where I design the future.',
+  title: 'Home',
+  description: homeTextMap.get('heading'),
 }
 
 export default function About() {
   return (
-      <Container className="mt-16 sm:mt-32 ">
-        <div
-            className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-          <div className="lg:pl-20">
-            <div className="max-w-xs px-2.5 lg:max-w-none">
-              <Image
-                  src={portraitImage}
-                  alt=""
-                  sizes="(min-width: 1024px) 32rem, 20rem"
-                  className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-              />
-            </div>
-          </div>
-          <div className="lg:order-first lg:row-span-2">
-            <div
-                className="grid grid-cols-1 gap-y-2">
-              <h4 className="text-1xl font-bold tracking-tight text-gray-300 sm:text-2xl dark:text-gray-400">
-                {sharedTextMap.get('name')}
-              </h4>
-              <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-                {sharedTextMap.get('title')}
-              </h1>
-            </div>
-
-            <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-              {[1, 2, 3].map((introNum) => <p key={introNum}>
-                {homeTextMap.get(`intro${introNum}` as HomeKey)}
-              </p>)}
-            </div>
-          </div>
-          <div className="lg:pl-20">
-            <ul role="list">
-              <SocialLink href="https://twitter.com/tellezivan06" icon={XIcon}>
-                Follow on X
-              </SocialLink>
-              <SocialLink href="https://www.instagram.com/tellesiivan/" icon={InstagramIcon} className="mt-4">
-                Follow on Instagram
-              </SocialLink>
-              <SocialLink href="https://github.com/tellesiivan" icon={GitHubIcon} className="mt-4">
-                Follow on GitHub
-              </SocialLink>
-              <SocialLink href="https://www.linkedin.com/in/ivan-telles-82a348a6/" icon={LinkedInIcon} className="mt-4">
-                Follow on LinkedIn
-              </SocialLink>
-              <SocialLink
-                  href={`mailto:${sharedTextMap.get('email')}}`}
-                  icon={MailIcon}
-                  className="mt-8 border-y border-zinc-100 py-8 dark:border-zinc-700/40"
-              >
-                {sharedTextMap.get('email')}
-              </SocialLink>
-            </ul>
-            <ExperienceContainer/>
+    <Container className="mt-16 sm:mt-32 ">
+      <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+        <div className="lg:pl-20">
+          <div className="max-w-xs px-2.5 lg:max-w-none">
+            <Image
+              src={portraitImage}
+              alt=""
+              sizes="(min-width: 1024px) 32rem, 20rem"
+              className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+            />
           </div>
         </div>
-       
-      </Container>
-)
+        <div className="lg:order-first lg:row-span-2">
+          <div className="grid grid-cols-1 gap-y-2">
+            <h4 className="text-1xl font-bold tracking-tight text-gray-300 sm:text-2xl dark:text-gray-400">
+              {sharedTextMap.get('name')}
+            </h4>
+            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+              {sharedTextMap.get('title')}
+            </h1>
+          </div>
+
+          <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+            {[1, 2, 3].map((introNum) => (
+              <p key={introNum}>
+                {homeTextMap.get(`intro${introNum}` as HomeKey)}
+              </p>
+            ))}
+          </div>
+        </div>
+        <div className="lg:pl-20">
+          <ul role="list">
+            <SocialLink href="https://twitter.com/tellezivan06" icon={XIcon}>
+              Follow on X
+            </SocialLink>
+            <SocialLink
+              href="https://www.instagram.com/tellesiivan/"
+              icon={InstagramIcon}
+              className="mt-4"
+            >
+              Follow on Instagram
+            </SocialLink>
+            <SocialLink
+              href="https://github.com/tellesiivan"
+              icon={GitHubIcon}
+              className="mt-4"
+            >
+              Follow on GitHub
+            </SocialLink>
+            <SocialLink
+              href="https://www.linkedin.com/in/ivan-telles-82a348a6/"
+              icon={LinkedInIcon}
+              className="mt-4"
+            >
+              Follow on LinkedIn
+            </SocialLink>
+            <SocialLink
+              href={`mailto:${sharedTextMap.get('email')}}`}
+              icon={MailIcon}
+              className="mt-8 border-y border-zinc-100 py-8 dark:border-zinc-700/40"
+            >
+              {sharedTextMap.get('email')}
+            </SocialLink>
+          </ul>
+          <ExperienceContainer />
+        </div>
+      </div>
+    </Container>
+  )
 }
