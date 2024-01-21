@@ -1,9 +1,8 @@
-import Image, { type ImageProps } from 'next/image'
+import { type Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 
-import { Button } from '@/components/Button'
-import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import {
   GitHubIcon,
@@ -11,125 +10,110 @@ import {
   LinkedInIcon,
   XIcon,
 } from '@/components/SocialIcons'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
+import portraitImage from '@/images/portrait.jpg'
 
-import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/image-2.jpg'
-import image3 from '@/images/photos/image-3.jpg'
-import image4 from '@/images/photos/image-4.jpg'
-import image5 from '@/images/photos/image-5.jpg'
-import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
-import { formatDate } from '@/lib/formatDate'
-
-
-
-function Article({ article }: { article: ArticleWithSlug }) {
-  return (
-    <Card as="article">
-      <Card.Title href={`/articles/${article.slug}`}>
-        {article.title}
-      </Card.Title>
-      <Card.Eyebrow as="time" dateTime={article.date} decorate>
-        {formatDate(article.date)}
-      </Card.Eyebrow>
-      <Card.Description>{article.description}</Card.Description>
-      <Card.Cta>Read article</Card.Cta>
-    </Card>
-  )
-}
+import {ExperienceContainer} from "@/components/experience-container";
+import {HomeKey, homeTextMap, sharedTextMap} from "@/lib/ui-text-map";
 
 function SocialLink({
+  className,
+  href,
+  children,
   icon: Icon,
-  ...props
-}: React.ComponentPropsWithoutRef<typeof Link> & {
+}: {
+  className?: string
+  href: string
   icon: React.ComponentType<{ className?: string }>
+  children: React.ReactNode
 }) {
   return (
-    <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
-    </Link>
+    <li className={clsx(className, 'flex')}>
+      <Link target="_blank"
+        href={href}
+        className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+      >
+        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
+        <span className="ml-4">{children}</span>
+      </Link>
+    </li>
   )
 }
 
-
-
-
-function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
-
+function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
-    <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image4, image2, image3, image5, image1].map((image, imageIndex) => (
-          <div
-            key={image.src}
-            className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-72 sm:rounded-2xl dark:bg-zinc-800',
-              rotations[imageIndex % rotations.length],
-            )}
-          >
-            <Image
-              src={image}
-              alt=""
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
+      />
+    </svg>
   )
 }
 
-export default async function Home() {
-  let articles = (await getAllArticles()).slice(0, 4)
+export const metadata: Metadata = {
+  title: 'About',
+  description:
+    'I’m Spencer Sharp. I live in New York City, where I design the future.',
+}
 
+export default function About() {
   return (
-    <>
-      <Container className="mt-9">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Software Developer at Mahalo Technologies Inc.
-          </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-              {`Im Ivan Telles, a software developer based in Norwalk, California. I’m currently a software developer at Mahalo Technologies Inc, where we are  building a multi-tenant mobile banking app serving 20+ unique credit unions. It's a fully customizable app that can be configured to match any credit union needs from customizing the theme of the app to configuring what vendor handles wire transfers via an admin dashboard.`}
-          </p>
-          <div className="mt-6 flex gap-6">
-            <SocialLink href="https://twitter.com/tellezivan06" aria-label="Follow on X" icon={XIcon} />
-            <SocialLink
-              href="https://www.instagram.com/tellesiivan/"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
-            <SocialLink
-              href="https://github.com/tellesiivan"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="https://www.linkedin.com/in/ivan-telles-82a348a6/"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-            />
+      <Container className="mt-16 sm:mt-32 ">
+        <div
+            className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+          <div className="lg:pl-20">
+            <div className="max-w-xs px-2.5 lg:max-w-none">
+              <Image
+                  src={portraitImage}
+                  alt=""
+                  sizes="(min-width: 1024px) 32rem, 20rem"
+                  className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+              />
+            </div>
+          </div>
+          <div className="lg:order-first lg:row-span-2">
+            <div
+                className="grid grid-cols-1 gap-y-2">
+              <h4 className="text-1xl font-bold tracking-tight text-gray-300 sm:text-2xl dark:text-gray-400">
+                {sharedTextMap.get('name')}
+              </h4>
+              <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+                {sharedTextMap.get('title')}
+              </h1>
+            </div>
+
+            <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+              {[1, 2, 3].map((introNum) => <p key={introNum}>
+                {homeTextMap.get(`intro${introNum}` as HomeKey)}
+              </p>)}
+            </div>
+          </div>
+          <div className="lg:pl-20">
+            <ul role="list">
+              <SocialLink href="https://twitter.com/tellezivan06" icon={XIcon}>
+                Follow on X
+              </SocialLink>
+              <SocialLink href="https://www.instagram.com/tellesiivan/" icon={InstagramIcon} className="mt-4">
+                Follow on Instagram
+              </SocialLink>
+              <SocialLink href="https://github.com/tellesiivan" icon={GitHubIcon} className="mt-4">
+                Follow on GitHub
+              </SocialLink>
+              <SocialLink href="https://www.linkedin.com/in/ivan-telles-82a348a6/" icon={LinkedInIcon} className="mt-4">
+                Follow on LinkedIn
+              </SocialLink>
+              <SocialLink
+                  href={`mailto:${sharedTextMap.get('email')}}`}
+                  icon={MailIcon}
+                  className="mt-8 border-y border-zinc-100 py-8 dark:border-zinc-700/40"
+              >
+                {sharedTextMap.get('email')}
+              </SocialLink>
+            </ul>
+            <ExperienceContainer/>
           </div>
         </div>
+       
       </Container>
-      <Photos />
-      <Container className="mt-24 md:mt-28">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">
-            {articles.map((article) => (
-              <Article key={article.slug} article={article} />
-            ))}
-          </div>
-          <div className="space-y-10 lg:pl-16 xl:pl-24">
-            {/*<Newsletter />*/}
-            {/*<Resume />*/}
-          </div>
-        </div>
-      </Container>
-    </>
-  )
+)
 }

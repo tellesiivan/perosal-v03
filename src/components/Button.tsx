@@ -32,3 +32,27 @@ export function Button({
     <Link className={className} {...props} />
   )
 }
+
+function ResumeButton() {
+  const onButtonClick = () => {
+    const link = document.createElement('a')
+    link.href = 'https://amber-dory-20.tiiny.site/'
+    link.target = '_blank'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
+  return (
+    <Button
+      name="kk"
+      onClick={onButtonClick}
+      variant="secondary"
+      className="group mt-6 w-full"
+    >
+      View Resume
+    </Button>
+  )
+}
+
+Button.Resume = ResumeButton

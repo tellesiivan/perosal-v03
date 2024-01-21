@@ -56,14 +56,30 @@ Card.Title = function CardTitle<T extends React.ElementType = 'h2'>({
   as?: T
   href?: string
 }) {
-  let Component = as ?? 'h2'
+  let Component = as ?? 'p'
 
   return (
-    <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+    <Component className=" text-sm font-mono tracking-tight text-gray-800 dark:text-gray-300">
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
   )
 }
+
+Card.SubTitle = function CardTitle<T extends React.ElementType = 'h2'>({
+                                                                      as,
+                                                                      children,
+                                                                    }: Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'href'> & {
+  as?: T
+}) {
+  let Component = as ?? 'p'
+
+  return (
+      <Component className=" text-xs tracking-tight  text-gray-800 dark:text-gray-300">
+        {children}
+      </Component>
+  )
+}
+
 
 Card.Description = function CardDescription({
   children,
@@ -105,7 +121,7 @@ Card.Eyebrow = function CardEyebrow<T extends React.ElementType = 'p'>({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500',
+        'relative z-10 order-first mb-3 flex items-center text-sm text-gray-600 dark:text-gray-400',
         decorate && 'pl-3.5',
       )}
       {...props}

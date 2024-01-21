@@ -3,47 +3,65 @@ import Image from 'next/image'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
-import logoCosmos from '@/images/logos/cosmos.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
+import graphLogo from '@/images/logos/graph.svg'
+import apiLogo from '@/images/logos/api.svg'
+import carLogo from '@/images/logos/car.svg'
+import cryptoLogo from '@/images/logos/crypto.svg'
+import pizzaLogo from '@/images/logos/pizza.svg'
+import hotelLogo from '@/images/logos/hotel.svg'
+import { projectsTextMap } from '@/lib/ui-text-map'
 
 const projects = [
   {
-    name: 'Planetaria',
-    description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: logoPlanetaria,
+    name: 'Vamo App',
+    description: projectsTextMap.get('vamoAppDesc'),
+    link: { href: '', label: 'Private Repository' },
+    logo: pizzaLogo,
   },
   {
-    name: 'Animaginary',
-    description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoAnimaginary,
+    name: 'Financely: Full-Stack',
+    description: projectsTextMap.get('financelyDesc'),
+    link: {
+      href: 'https://github.com/tellesiivan/financely',
+      label: 'github.com',
+    },
+    logo: graphLogo,
   },
   {
-    name: 'HelioStream',
-    description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
+    name: 'Simplimods',
+    description: projectsTextMap.get('simplimodsDesc'),
+    link: {
+      href: 'https://simplimods-git-main-tellesiivan.vercel.app/u/pRufKEb4bMVvih2hLPdn9uDdoJI3',
+      label: 'simplimods.com',
+    },
+    logo: carLogo,
   },
   {
-    name: 'cosmOS',
-    description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
+    name: 'User Management API',
+    description: projectsTextMap.get('usersApiDesc'),
+    link: {
+      href: 'https://github.com/tellesiivan/usersApi',
+      label: 'github.com',
+    },
+    logo: apiLogo,
   },
   {
-    name: 'OpenShuttle',
-    description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoOpenShuttle,
+    name: 'Crypto',
+    description: projectsTextMap.get('cryptoDesc'),
+    link: {
+      href: 'https://github.com/tellesiivan/crypto_app',
+      label: 'github.com',
+    },
+    logo: cryptoLogo,
+  },
+  {
+    name: 'HotelListing API',
+    description: projectsTextMap.get('hotelApiDesc'),
+    link: {
+      href: 'https://github.com/tellesiivan/HotelListingAPI/tree/main',
+      label: 'github.com',
+    },
+    logo: hotelLogo,
   },
 ]
 
@@ -59,15 +77,15 @@ function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 }
 
 export const metadata: Metadata = {
-  title: 'Projects',
-  description: 'Things I’ve made trying to put my dent in the universe.',
+  title: projectsTextMap.get('heading'),
+  description: projectsTextMap.get('description'),
 }
 
 export default function Projects() {
   return (
     <SimpleLayout
-      title="Things I’ve made trying to put my dent in the universe."
-      intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+      title={projectsTextMap.get('heading')}
+      intro={projectsTextMap.get('description')}
     >
       <ul
         role="list"
@@ -84,7 +102,9 @@ export default function Projects() {
               />
             </div>
             <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-              <Card.Link href={project.link.href}>{project.name}</Card.Link>
+              <Card.Link href={project.link.href} target="_blank">
+                {project.name}
+              </Card.Link>
             </h2>
             <Card.Description>{project.description}</Card.Description>
             <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">

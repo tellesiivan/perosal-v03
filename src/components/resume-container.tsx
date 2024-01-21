@@ -1,3 +1,4 @@
+'use client'
 import {Button} from "@/components/Button";
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -25,19 +26,17 @@ function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 export function ResumeContainer() {
 	return (
 		<div
-			className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
+			className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40 mt-16 mx-auto max-w-xl"
 		>
 			<h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
 				<MailIcon className="h-6 w-6 flex-none" />
 				<span className="ml-3">Resume</span>
 			</h2>
 			<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-				{`Interested in what I'm all about? Download my resume and view my latest skills and experience.`}
+				{`Interested in what I'm all about? View my resume and view my latest skills and experience.`}
 			</p>
 			<div className="mt-6 w-full">
-				<Button type="submit" className="w-full">
-					Download
-				</Button>
+				<Button.Resume/>
 			</div>
 		</div>
 	)
