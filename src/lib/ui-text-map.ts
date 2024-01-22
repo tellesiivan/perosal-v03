@@ -1,4 +1,4 @@
-export type HomeKey = 'intro1' | 'intro2' | 'intro3' | 'heading'
+export type HomeKey = 'intro1' | 'intro2' | 'intro3' | 'intro4' | 'heading'
 export type SharedKey = 'name' | 'title' | 'email'
 export type ExperienceKey =
   | 'heading'
@@ -33,10 +33,20 @@ export const sharedTextMap = new Map<SharedKey, string>([
 export const homeTextMap = new Map<HomeKey, string>([
   [
     'intro1',
-    `I'm Ivan Telles, a software developer based in Norwalk, California. I’m currently a software developer at Mahalo Technologies Inc, where we are  building a multi-tenant mobile banking app serving 20+ unique credit unions. It's a fully customizable app that can be configured to match any credit union needs from customizing the theme of the app to configuring what vendor handles wire transfers via an admin dashboard.`,
+    `With over 5 years of experience in the software industry, I have had the opportunity to work on meaningful projects that solve complex business problems. I am currently employed as a Software Developer at Mahalo Technologies Inc. where our team builds innovative online banking solutions for credit unions.`,
   ],
-  ['intro2', 'Software Developer at Mahalo Technologies Inc.'],
-  ['intro3', 'Software Developer at Mahalo Technologies Inc.'],
+  [
+    'intro2',
+    'Outside of work, I enjoy exercising my passion for software by building my own applications. I am currently developing a cross-platform mobile app for IOS/Android that will enable users to easily discover local street vendors based on their locations. By allowing vendors to easily broadcast their availability, it creates a win-win situation for small businesses and hungry customers craving authentic street food in their area.',
+  ],
+  [
+    'intro3',
+    "I continue expanding my skill set by learning modern full-stack frameworks. I stay up-to-date on the latest industry advancements by actively taking online courses and experimenting with new languages. Recently I've been heavily involved in creating full-stack applications using ASP.NET Core Web API along side Entity Framework Core and SQL Server for database persistence. As a lifelong learner, I am motivated by intellectual challenges that enable me to grow as a software developer. I apply my analytical approach and attention to detail to deliver clean, maintainable code for all my software endeavors.",
+  ],
+  [
+    'intro4',
+    'I am always eager to collaborate and welcome any feedback or opportunities to further enhance my development craft. Please feel free to connect with me to learn more about my projects and passion for problem-solving through code!',
+  ],
   ['heading', 'Ivan Telles, a Software Developer from Norwalk, California'],
 ])
 
@@ -75,7 +85,7 @@ export const projectsTextMap = new Map<ProjectsKey, string>([
 export const experienceTextMap = new Map<ExperienceKey, string>([
   ['job1Date', `Aug 2022 - Present`],
   ['job2Date', `Oct 2021 - July 2022`],
-  ['heading', `My most recent experience over the past years.`],
+  ['heading', `Experience over the past few years.`],
   [
     'description',
     'Here is my most recent experience, laying out my recent' +

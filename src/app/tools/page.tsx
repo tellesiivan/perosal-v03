@@ -15,6 +15,7 @@ const skills = [
   'Jetbrains Rider',
   'C#',
   'Dapper',
+  'XCode',
   'Entity Framework Core',
   'ASP.NET Core Web API',
   'SQL Server on Azure VM',
@@ -45,6 +46,7 @@ const skills = [
   'PostGres',
   'Docker',
   'Figma',
+  'TanStack',
   'MVC',
   'Object-Oriented Programming',
   'Tailwind',
@@ -74,7 +76,7 @@ export default function Uses() {
   return (
     <SimpleLayout
       title="Techstack I currently use and recent certifications."
-      intro="Here is a list of the most recent certifications that I've recieved and an ongrowing techstack and tools list. I'm always motivated to learn new things and play around with the latest tools in software development."
+      intro="Here is a list of the most recent certifications that I've recieved and an ongrowing techstack/tools list. I'm always motivated to learn new things and play around with the latest tools in software development."
     >
       <div className="flex flex-col space-y-8">
         <header className="bg:text-gray-800 text-xl  font-semibold text-gray-500">
@@ -86,7 +88,7 @@ export default function Uses() {
             value={query}
             placeholder="Search..."
             type="text"
-            className="min-h-14 rounded-2xl bg-gray-50 px-3 py-3 text-xs focus:outline-none dark:bg-zinc-800"
+            className="min-h-14 rounded-2xl bg-gray-50 px-3 py-3 focus:outline-none md:text-xs dark:bg-zinc-800"
           />
           <div className="flex flex-wrap space-x-1.5">
             {skills.map((skill, i) => (

@@ -81,7 +81,7 @@ export default function About() {
           </div>
 
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-            {[1, 2, 3].map((introNum) => (
+            {[1, 2, 3, 4].map((introNum) => (
               <p key={introNum}>
                 {homeTextMap.get(`intro${introNum}` as HomeKey)}
               </p>
